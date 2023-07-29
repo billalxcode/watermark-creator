@@ -88,7 +88,6 @@
                 cache: false,
                 success: function (response) {
                     if (response['status']) {
-                        console.log(response)
                         $("#alerts").html(
                             `<div class="alert alert-success">Berhasil upload file</div>`
                         )
