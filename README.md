@@ -37,7 +37,7 @@ POST /api/image/upload
         "dest": string | null,
         "updated_at": datetime,
         "created_at": datetime,
-        "id": id
+        "id": number
     }
 }
 ```
@@ -54,5 +54,61 @@ POST /api/image/upload
         "updated_at": "2023-07-29T00:43:37.000000Z",
         "created_at": "2023-07-29T00:43:37.000000Z"
     }
+}
+```
+
+## Fetch all images
+You can get all images from database
+### Request
+```http
+POST /api/image/fetch
+```
+
+### Responses
+```javascript
+{
+    {
+    "status": boolean,
+    "data": [
+        {
+            "id": number,
+            "path": string,
+            "dest": string | null,
+            "status": string,
+            "created_at": datetime,
+            "updated_at": datetime,
+            "url": string
+        }
+    ]
+}
+}
+```
+
+### Example response
+```json
+{
+    {
+    "status": true,
+    "data": [
+        {
+            "id": 1,
+            "path": "images/1690590004_Screenshot (6).png",
+            "dest": "/storage/images/1690590004_Screenshot (6)_thumb.png",
+            "status": "success",
+            "created_at": "2023-07-29T00:20:04.000000Z",
+            "updated_at": "2023-07-29T00:28:59.000000Z",
+            "url": "/storage/images/1690590004_Screenshot (6).png"
+        },
+        {
+            "id": 2,
+            "path": "images/1690590061_Screenshot (6).png",
+            "dest": "/storage/images/1690590061_Screenshot (6)_thumb.png",
+            "status": "success",
+            "created_at": "2023-07-29T00:21:01.000000Z",
+            "updated_at": "2023-07-29T00:29:01.000000Z",
+            "url": "/storage/images/1690590061_Screenshot (6).png"
+        }
+    ]
+}
 }
 ```
