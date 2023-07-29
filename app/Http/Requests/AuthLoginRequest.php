@@ -3,16 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
-class ImageUploadRequest extends FormRequest
+class AuthLoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return !Auth::check();
     }
 
     /**
@@ -23,11 +23,8 @@ class ImageUploadRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "image" => "required|image|mimes:jpeg,png,jpg,gif",
-            "type" => [
-                "required",
-                Rule::in(["text", "image"])
-            ]
+            "email" => "required",
+            "password" => "required|min:4"
         ];
     }
 }

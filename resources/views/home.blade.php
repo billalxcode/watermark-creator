@@ -30,6 +30,13 @@
                                     <input class="form-control" type="file" id="formFile" name="image">
                                 </div>
                                 <div class="col-12 mb-3">
+                                    <label for="wmtype" class="form-label">Watermark Type</label>
+                                    <select name="type" id="wmtype" class="form-select">
+                                        <option value="text">Text</option>
+                                        <option value="image" selected>Image</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-3">
                                     <button type="submit" class="btn btn-primary w-100">Submit</button>
                                 </div>
                             </div>
@@ -96,7 +103,7 @@
                     $("form").trigger("reset")
                 },
                 error: function (response) {
-                    
+                    console.log(response)  
                 },
                 complete: function (response) {
                     fetchData()

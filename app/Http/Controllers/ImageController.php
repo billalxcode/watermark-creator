@@ -49,10 +49,11 @@ class ImageController extends Controller
         $imagedata = Image::create([
             'path' => $full_filename,
             'status' => 'processing',
-            'dest' => null
+            'dest' => null,
+            'type' => $request->post("type")
         ]);
         
-        dispatch(new ProcessImageWatermark);
+        // dispatch(new ProcessImageWatermark);
 
         return response()->json([
             'status' => true,

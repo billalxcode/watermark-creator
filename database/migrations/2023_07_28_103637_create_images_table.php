@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('path');
             $table->string('dest')->nullable();
+            $table->enum('type', ['text', 'image'])->default('image');
             $table->enum('status', ['success', 'failed', 'processing'])->default('processing');
             $table->timestamps();
         });
