@@ -1,6 +1,12 @@
 # Intro
 The task of the ForIT company Asta Solusindo, where the task is to make a rest api to add a watermark using Laravel.
 
+## User process
+![User Process](./docs/userprocess.png)
+
+## Queue process
+![Queue Process](./docs/queueprocess.png)
+
 # How to install
 ```shell
 git clone https://github.com/billalxcode/watermark-creator
@@ -12,8 +18,8 @@ Configure dotenv in .env file, change `QUEUE_CONNECTION` to `database` then adju
 
 ```shell
 php artisan key:generate
-php artisan queue:table
 php artisan migrate
+php artisan queue:work --daemon
 ```
 
 # Docs
